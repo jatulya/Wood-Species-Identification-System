@@ -4,7 +4,7 @@ import Footer from "./components/Footer";  // Add Footer
 import Home from "./components/Home";
 import Login from "./components/Login";
 import WoodClassifier from "./components/WoodClassifier";
-import Description from "./components/Description";
+import Description from "./components/ResultCard";
 
 function App() {
   return (

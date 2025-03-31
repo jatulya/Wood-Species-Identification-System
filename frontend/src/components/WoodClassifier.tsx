@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { UploadCloud, X } from "lucide-react";
 import { FaQuestionCircle } from "react-icons/fa";
-import axios from "axios";
-
+import axios from "axios"; 
+import ResultCard from "./ResultCard";
+import { Result} from "../types/interfaces";
 const WoodClassifier = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
-    const [preview, setPreview] = useState<string | null>(null);
+    const [preview, setPreview] = useState<string>("");
     const [uploadProgress, setUploadProgress] = useState<number | null>(null);
     const [loading, setLoading] = useState(false);
-    const [result, setResult] = useState<{ species: string; confidence: number } | null>(null);
+    const [result, setResult] = useState<Result | null>(null);
     const [error, setError] = useState<string | null>(null);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +52,7 @@ const WoodClassifier = () => {
 
     const handleRemoveFile = () => {
         setSelectedFile(null);
-        setPreview(null);
+        setPreview("");
         setUploadProgress(null);
         setResult(null);
         setError(null);
@@ -117,16 +118,10 @@ const WoodClassifier = () => {
                     </div>
                 )}
 
+                
                 {/* Prediction Result */}
                 {result && (
-                    <div className="mt-4 p-4 bg-green-100 dark:bg-green-800 rounded-lg text-center">
-                        <p className="text-lg font-semibold text-green-700 dark:text-green-300">
-                            Prediction: {result.species}
-                        </p>
-                        <p className="text-gray-700 dark:text-gray-300">
-                            Confidence: {(result.confidence * 100).toFixed(2)}%
-                        </p>
-                    </div>
+                    <ResultCard result={result} imageUrl={preview} />
                 )}
 
                 {/* Buttons */}
