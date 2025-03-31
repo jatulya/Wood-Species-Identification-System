@@ -34,7 +34,7 @@ const LandingPage = () => {
             <div className="flex space-x-6">
               <Link
                 to="/upload"
-                className="bg-green-500 text-white px-10 py-4 rounded-full font-semibold shadow-md hover:bg-green-600 transition-colors"
+                className="bg-green-700 text-white px-10 py-4 rounded-full font-semibold shadow-md hover:bg-green-700 transition-colors"
               >
                 Get Started
               </Link>
@@ -60,8 +60,8 @@ const LandingPage = () => {
             { icon: FaCamera, title: "Easy to Use", text: "Upload an image, and our system handles the rest." }
           ].map((feature, index) => (
             <div key={index} className="bg-gray-50 rounded-3xl shadow-md p-12 flex flex-col items-center hover:shadow-lg transition-shadow">
-              <div className="flex items-center justify-center w-24 h-24 rounded-full bg-green-100 mb-10">
-                <feature.icon className="text-green-500 text-5xl" />
+              <div className="flex items-center justify-center w-24 h-24 rounded-full bg-green-200 mb-10">
+                <feature.icon className="text-green-700 text-5xl" />
               </div>
               <h3 className="text-2xl font-semibold text-gray-800 mb-6">{feature.title}</h3>
               <p className="text-gray-700 leading-relaxed">{feature.text}</p>
@@ -83,7 +83,7 @@ const LandingPage = () => {
           ].map((item, index) => (
             <div key={index} className="bg-white rounded-xl shadow-md p-10 flex flex-col items-center hover:shadow-lg transition-shadow">
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-green-100 mb-8">
-                <span className="text-3xl font-semibold text-green-600">{`0${index + 1}`}</span>
+                <span className="text-3xl font-bold text-green-700">{`0${index + 1}`}</span>
               </div>
               <h3 className="text-2xl font-semibold text-gray-800 mb-6">{item.step}</h3>
               <img src={item.img} alt={item.step} className="w-52 h-44 object-contain mb-8" />
@@ -94,7 +94,7 @@ const LandingPage = () => {
       </section>
 
       {/* Call-to-Action (CTA) Section */}
-      <section className="bg-green-600 text-white py-20 text-center">
+      <section className="bg-green-800 text-white py-20 text-center">
         <h2 className="text-4xl font-bold mb-6">Get Started Today</h2>
         <p className="text-xl max-w-2xl mx-auto mb-8">Experience AI-driven wood species recognition. Upload your sample and get instant results!</p>
         <div className="flex justify-center space-x-6">
@@ -107,18 +107,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Contact section*/}
-      <section id="contact-section" className="bg-gray-50 py-20 px-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Us</h2>
-        <p className="text-lg text-gray-600 mb-12">Have questions? Reach out to us!</p>
-
-        <form className="max-w-2xl mx-auto mt-8 space-y-8">
-          <input type="text" placeholder="Your Name" className="w-full px-6 py-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
-          <input type="email" placeholder="Your Email" className="w-full px-6 py-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
-          <textarea placeholder="Your Message" rows="5" className="w-full px-6 py-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
-          <button type="submit" className="bg-green-600 text-white px-10 py-4 rounded-full font-semibold hover:bg-green-700 transition-colors">Send Message</button>
-        </form>
-      </section>
 
       {/* FAQs Section */}
       <section className="bg-white py-20 px-8">

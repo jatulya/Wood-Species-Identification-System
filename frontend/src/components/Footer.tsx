@@ -1,13 +1,13 @@
 const Footer = () => {
     return (
 
-<footer className="bg-gray-800 text-white py-12 px-6">
+<footer className="bg-green-900 text-white py-12 px-6">
   <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
     
     {/* Company Info */}
     <div className="md:col-span-1">
       <h3 className="text-lg font-semibold mb-4">WoodID</h3>
-      <p className="text-sm text-gray-400">
+      <p className="text-sm text-white">
         Your reliable partner for wood species identification and analysis.
       </p>
       <div className="mt-4">
@@ -43,10 +43,10 @@ const Footer = () => {
   </div>
   
   {/* Divider */}
-  <hr className="border-gray-700 my-8" /> 
+  <hr className="border-white my-8" /> 
   
   {/* Copyright */}
-  <div className="text-center text-sm text-gray-400">
+  <div className="text-center text-sm text-white">
     &copy; {new Date().getFullYear()} WoodID. All rights reserved.
   </div>
 </footer>
