@@ -1,9 +1,9 @@
 fastapi
 uvicorn
-tensorflow
 torch
 torchvision
 numpy
 pillow
 openai
 dotenv
+python-multipart
