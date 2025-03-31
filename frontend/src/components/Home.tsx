@@ -23,7 +23,7 @@ const LandingPage = () => {
           style={{ backgroundImage: `url(${pexel1})` }}
         ></div>
 
-        <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-start p-12">
+        <div className="absolute inset-0 bg-black bg-opacity-60 flex items-end justify-start px-16 py-20">
           <div className="text-left text-white">
             <h1 className="text-5xl font-bold leading-tight mb-6">
               Identify Wood Species <span className="text-green-400">Effortlessly</span>
@@ -34,13 +34,13 @@ const LandingPage = () => {
             <div className="flex space-x-6">
               <Link
                 to="/upload"
-                className="bg-green-700 text-white px-10 py-4 rounded-full font-semibold shadow-md hover:bg-green-700 transition-colors"
+                className="bg-green-700 text-white px-12 py-2 rounded-full font-semibold shadow-md hover:bg-green-800 transition-colors"
               >
                 Get Started
               </Link>
               <Link
                 to="/about"
-                className="border border-white text-white px-10 py-4 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-colors"
+                className="border border-white text-white px-12 py-2 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-colors"
               >
                 Learn More
               </Link>
@@ -115,8 +115,8 @@ const LandingPage = () => {
           {[
             { question: "How accurate is the wood species identification?", answer: "Our AI model has an accuracy rate of 90% based on extensive training." },
             { question: "What types of images work best?", answer: "High-quality close-up images of wood grain yield the most accurate results." },
-            { question: "Can the system estimate the wood's age?", answer: "Yes, the model can analyze growth rings to estimate the approximate age." },
-            { question: "Is this service free to use?", answer: "Yes, basic identification is free. Advanced features may require a subscription." }
+            { question: "Can the system estimate the wood's age?", answer: "No, the model can not analyze growth rings to estimate the approximate age." },
+            { question: "Is this service free to use?", answer: "Yes, basic identification is free." }
           ].map((faq, index) => (
             <div key={index} className="border-b py-5">
               <button onClick={() => toggleFAQ(index)} className="w-full text-left text-lg font-semibold flex justify-between">

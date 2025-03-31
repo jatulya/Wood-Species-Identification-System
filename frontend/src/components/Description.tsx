@@ -86,7 +86,7 @@ const Description = () => {
           </button>
 
           <button
-            className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800"
+            className="flex items-center gap-2 px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-green-500"
             onClick={handleDownload}
           >
             <Download className="w-5 h-5" /> Download
