@@ -25,8 +25,9 @@ const Navbar = () => {
           <Link to="/services" className="hover:text-blue-700">Services</Link>
           <Link to="/contact" className="hover:text-blue-700">Contacts</Link>
         </div>
-
-        {/* Login / Signup OR Profile / Logout */}
+        
+        {/* Removing this temporarily as this is not being used currently*/}
+        {/*
         <div className="hidden md:flex space-x-4">
           {isLoggedIn ? (
             <>
@@ -51,7 +52,7 @@ const Navbar = () => {
             </>
           )}
         </div>
-
+        */}
 
         {/* Mobile Menu Button */}
         <button
