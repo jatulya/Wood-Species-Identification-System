@@ -5,7 +5,6 @@ import axios from "axios";
 import ResultCard from "./ResultCard";
 import { Result} from "../types/interfaces";
 
-
 const WoodClassifier = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [preview, setPreview] = useState<string>("");

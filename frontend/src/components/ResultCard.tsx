@@ -1,24 +1,6 @@
-import { useEffect, useState } from "react";
 import { Download, ClipboardCopy } from "lucide-react";
-import { useLocation } from "react-router-dom";
-
-const ResultCard = () => {
-  const location = useLocation();
-  const [result, setResult] = useState(location.state?.result || null);
-  const [imageUrl, setImageUrl] = useState(location.state?.imageUrl || null);
-
-  useEffect(() => {
-    if (!result) {
-      const savedResult = localStorage.getItem("woodResult");
-      if (savedResult) setResult(JSON.parse(savedResult));
-    }
-
-    if (!imageUrl) {
-      const savedImage = localStorage.getItem("woodImage");
-      if (savedImage) setImageUrl(savedImage);
-    }
-  }, []);
-
+import { ResultProps } from "../types/interfaces";
+const ResultCard = ({ result, imageUrl }: ResultProps) => {
   const handleDownload = () => {
     if (imageUrl) {
       const link = document.createElement("a");
@@ -32,11 +14,16 @@ const ResultCard = () => {
 
   const handleCopyToClipboard = () => {
     if (result) {
+      console.log(result);
       const resultText = `
-        Identified Species: ${result.species}
-        Scientific Name: ${result.scientificName || "Unknown"}
-        Common Name: ${result.commonName || "Unknown"}
-        Areas Found: ${result.areasFound || "Unknown"}
+        Identified Species: ${result.predicted_class}
+        Confidence: ${result.confidence}
+        Scientific Name: ${result.scientific_name || "Unknown"}
+        Common Name: ${result.common_name || "Unknown"}
+        Areas Found: ${result.areas_found.join(', ') || "Unknown"}
+        Suitable for : ${result.best_used_for || "Unknown"}
+        Not Suitable for : ${result.not_suitable_for || "Unknown"}
+        Price Range : ${result.price_range || "Unknown"}
       `;
       navigator.clipboard.writeText(resultText);
       alert("Result copied to clipboard!");
@@ -54,22 +41,34 @@ const ResultCard = () => {
         {result ? (
           <>
             <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200 mb-4">
-              Identified Species: {result.species}
+              Identified Species: {result.predicted_class}
             </h2>
+            <p className="text-gray-600 dark:text-gray-400 text-center mb-4">
+              Confidence: {result.confidence*100}%
+            </p>
 
             {imageUrl && (
-              <img src={imageUrl} alt="Uploaded" className="w-full rounded-lg shadow-md mb-4" />
+              <img src={imageUrl} alt="Uploaded" className="w-svw rounded-lg shadow-md mb-4" />
             )}
 
             <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
               <p className="text-gray-700 dark:text-gray-300">
-                <strong>Scientific Name:</strong> {result.scientificName || "Unknown"}
+                <strong>Scientific Name:</strong> {result.scientific_name || "Unknown"}
               </p>
               <p className="text-gray-700 dark:text-gray-300">
-                <strong>Common Name:</strong> {result.commonName || "Unknown"}
+                <strong>Common Name:</strong> {result.common_name || "Unknown"}
               </p>
               <p className="text-gray-700 dark:text-gray-300">
-                <strong>Areas Found:</strong> {result.areasFound || "Unknown"}
+                <strong>Areas Found:</strong> {result.areas_found.join(', ') || "Unknown"}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <strong>Suitable for:</strong> {result.best_used_for.join(', ') || "Unknown"}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <strong>Not Suitable for:</strong> {result.not_suitable_for.join(', ') || "Unknown"}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <strong>Price Range:</strong> {result.price_range || "Unknown"}
               </p>
             </div>
           </>
