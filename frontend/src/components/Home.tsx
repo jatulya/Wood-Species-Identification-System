@@ -1,49 +1,145 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { FaBolt, FaBrain, FaCamera } from "react-icons/fa";
+import pexel1 from "../assets/pexel 1.jpg";
+import uploadImg from "../assets/upload.png";
+import analysisImg from "../assets/Analysis.png";
+import resultImg from "../assets/Search.png";
 
 const LandingPage = () => {
+  const [openFAQ, setOpenFAQ] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
   return (
-    <div className="bg-gray-100 min-h-screen">
-      {/* Hero Section */}
-      <header className="bg-green-800 text-white py-16 text-center">
-        <h1 className="text-4xl font-bold">Wood Species Recognition System</h1>
-        <p className="mt-4 text-lg">Identify wood species instantly using AI-powered recognition.</p>
-        <Link to="/upload" className="mt-6 inline-block bg-white text-green-800 px-6 py-2 rounded-full font-bold hover:bg-gray-200">
-          Get Started
-        </Link>
+    <div className="bg-gray-50 min-h-screen">
+
+      {/* Header Section */}
+      <header className="relative h-[550px] rounded-[2rem] overflow-hidden mx-auto max-w-[1420px] my-12 shadow-lg">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${pexel1})` }}
+        ></div>
+
+        <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-start p-12">
+          <div className="text-left text-white">
+            <h1 className="text-5xl font-bold leading-tight mb-6">
+              Identify Wood Species <span className="text-green-400">Effortlessly</span>
+            </h1>
+            <p className="text-xl mb-8 text-gray-200">
+              Use AI-powered recognition to analyze and classify wood species with precision.
+            </p>
+            <div className="flex space-x-6">
+              <Link
+                to="/upload"
+                className="bg-green-500 text-white px-10 py-4 rounded-full font-semibold shadow-md hover:bg-green-600 transition-colors"
+              >
+                Get Started
+              </Link>
+              <Link
+                to="/about"
+                className="border border-white text-white px-10 py-4 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-colors"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </div>
       </header>
 
       {/* Features Section */}
-      <section className="py-16 px-8 text-center">
-        <h2 className="text-3xl font-bold">Why Use Our System?</h2>
-        <div className="mt-8 grid md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 shadow rounded-lg">
-            <h3 className="text-xl font-semibold">Fast & Accurate</h3>
-            <p>Get precise wood species identification in seconds.</p>
-          </div>
-          <div className="bg-white p-6 shadow rounded-lg">
-            <h3 className="text-xl font-semibold">AI-Powered Analysis</h3>
-            <p>Leverages deep learning to analyze growth rings and texture.</p>
-          </div>
-          <div className="bg-white p-6 shadow rounded-lg">
-            <h3 className="text-xl font-semibold">Easy to Use</h3>
-            <p>Upload an image and let the system do the work.</p>
-          </div>
+      <section id="why-our-system" className="py-20 px-8 text-center bg-white">
+        <h2 className="text-4xl font-semibold text-gray-800 mb-16">Why Use Our System?</h2>
+
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          {[
+            { icon: FaBolt, title: "Fast & Accurate", text: "Get precise wood species identification within seconds." },
+            { icon: FaBrain, title: "AI-Powered Analysis", text: "Advanced algorithms analyze unique wood patterns." },
+            { icon: FaCamera, title: "Easy to Use", text: "Upload an image, and our system handles the rest." }
+          ].map((feature, index) => (
+            <div key={index} className="bg-gray-50 rounded-3xl shadow-md p-12 flex flex-col items-center hover:shadow-lg transition-shadow">
+              <div className="flex items-center justify-center w-24 h-24 rounded-full bg-green-100 mb-10">
+                <feature.icon className="text-green-500 text-5xl" />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-6">{feature.title}</h3>
+              <p className="text-gray-700 leading-relaxed">{feature.text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Upload Section */}
-      <section className="bg-green-50 py-16 text-center">
-        <h2 className="text-3xl font-bold">Upload Your Wood Sample</h2>
-        <p className="mt-4 text-lg">Get instant identification and details.</p>
-        <Link to="/upload" className="mt-6 inline-block bg-green-700 text-white px-6 py-2 rounded-full font-bold hover:bg-green-800">
-          Upload Now
-        </Link>
+      {/* How We Work Section (Card-Based Design) */}
+      <section className="bg-gray-100 py-24 px-8 text-center">
+        <h2 className="text-4xl font-semibold text-gray-800 mb-12">How We Work</h2>
+        <p className="text-lg text-gray-600 mb-16">A simple 3-step process to identify wood species.</p>
+
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+          {[
+            { step: "Upload", img: uploadImg, text: "Choose a clear image of the wood sample." },
+            { step: "Analyze", img: analysisImg, text: "Our AI model processes the image and extracts features." },
+            { step: "Results", img: resultImg, text: "View detailed species classification and age estimation." }
+          ].map((item, index) => (
+            <div key={index} className="bg-white rounded-xl shadow-md p-10 flex flex-col items-center hover:shadow-lg transition-shadow">
+              <div className="flex items-center justify-center w-20 h-20 rounded-full bg-green-100 mb-8">
+                <span className="text-3xl font-semibold text-green-600">{`0${index + 1}`}</span>
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-6">{item.step}</h3>
+              <img src={item.img} alt={item.step} className="w-52 h-44 object-contain mb-8" />
+              <p className="text-gray-700 leading-relaxed text-center">{item.text}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white text-center py-6">
-        <p>&copy; 2025 Wood Recognition AI. All rights reserved.</p>
-      </footer>
+      {/* Call-to-Action (CTA) Section */}
+      <section className="bg-green-600 text-white py-20 text-center">
+        <h2 className="text-4xl font-bold mb-6">Get Started Today</h2>
+        <p className="text-xl max-w-2xl mx-auto mb-8">Experience AI-driven wood species recognition. Upload your sample and get instant results!</p>
+        <div className="flex justify-center space-x-6">
+          <Link to="/upload" className="bg-white text-green-600 px-10 py-4 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition-colors">
+            Upload Now
+          </Link>
+          <Link to="/about" className="border border-white text-white px-10 py-4 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-colors">
+            Learn More
+          </Link>
+        </div>
+      </section>
+
+      {/* Contact section*/}
+      <section id="contact-section" className="bg-gray-50 py-20 px-8 text-center">
+        <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Us</h2>
+        <p className="text-lg text-gray-600 mb-12">Have questions? Reach out to us!</p>
+
+        <form className="max-w-2xl mx-auto mt-8 space-y-8">
+          <input type="text" placeholder="Your Name" className="w-full px-6 py-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <input type="email" placeholder="Your Email" className="w-full px-6 py-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <textarea placeholder="Your Message" rows="5" className="w-full px-6 py-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+          <button type="submit" className="bg-green-600 text-white px-10 py-4 rounded-full font-semibold hover:bg-green-700 transition-colors">Send Message</button>
+        </form>
+      </section>
+
+      {/* FAQs Section */}
+      <section className="bg-white py-20 px-8">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">FAQs</h2>
+        <div className="mt-10 max-w-2xl mx-auto">
+          {[
+            { question: "How accurate is the wood species identification?", answer: "Our AI model has an accuracy rate of 90% based on extensive training." },
+            { question: "What types of images work best?", answer: "High-quality close-up images of wood grain yield the most accurate results." },
+            { question: "Can the system estimate the wood's age?", answer: "Yes, the model can analyze growth rings to estimate the approximate age." },
+            { question: "Is this service free to use?", answer: "Yes, basic identification is free. Advanced features may require a subscription." }
+          ].map((faq, index) => (
+            <div key={index} className="border-b py-5">
+              <button onClick={() => toggleFAQ(index)} className="w-full text-left text-lg font-semibold flex justify-between">
+                {faq.question}
+                <span className="text-green-600">{openFAQ === index ? "−" : "+"}</span>
+              </button>
+              {openFAQ === index && <p className="mt-3 text-gray-700">{faq.answer}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

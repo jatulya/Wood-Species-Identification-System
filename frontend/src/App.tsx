@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";  // Add Footer
 import Home from "./components/Home";
-import Login from "./components/Login";
 import WoodClassifier from "./components/WoodClassifier";
 import Description from "./components/Description";
 
@@ -16,7 +15,6 @@ function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/upload" element={<WoodClassifier />} />
           <Route path="/description" element={<Description />} />
         </Routes>
