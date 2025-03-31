@@ -32,7 +32,11 @@ The Wood Species Identification System is a machine learning application that cl
 
 Use the application to upload images and get predictions on wood species.
 
-## Tools and Libraries Used
+## 🧑‍💻 Google Colab
+For training and testing the model in a cloud environment, you can use the Colab notebook:
+🔗 [Colab Notebook](https://colab.research.google.com/drive/1MtMwS3cb1tcnTEfeaQSjtFFwJjsy7v3n?usp=sharing)
+
+## 🛠️ Tools and Libraries Used
 1. PyTorch
 2. FastAPI
 3. OpenCV
