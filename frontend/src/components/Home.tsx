@@ -9,7 +9,7 @@ import resultImg from "../assets/Search.png";
 const LandingPage = () => {
   const [openFAQ, setOpenFAQ] = useState(null);
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: any) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
   return (
@@ -110,35 +110,35 @@ const LandingPage = () => {
     {[
         {
           question: "What is this system used for?",
-          answer: "This system helps users *identify wood species* from images using *machine learning*. Simply upload a photo of a wood sample, and the system will predict the species along with a confidence score.",
+          answer: "This system helps users identify wood species from images using machine learning. Simply upload a photo of a wood sample, and the system will predict the species along with a confidence score.",
         },
         {
           question: "How do I use the wood species identification system?",
-          answer: "1. Click the *\"Upload Image\"* button.<br>2. Select a clear photo of the wood sample.<br>3. Click *\"Predict\"* to process the image.<br>4. The system will display the *species name* and *confidence score*.",
+          answer: "1. Click the \"Upload Image\" button.<br>2. Select a clear photo of the wood sample.<br>3. Click \"Predict\" to process the image.<br>4. The system will display the species name and confidence score.",
         },
         {
           question: "What types of wood species can be identified?",
-          answer: "The system is trained to recognize *12 wood species*, including:<br>- Ailanthus altissima<br>- Alnus glutinosa<br>- Castanea sativa<br>- Cupressus sempervirens<br>- Fagus sylvatica<br>- Fraxinus ornus<br>- Juglans regia<br>- Picea abies<br>- Pinus sylvestris<br>- Platanus orientalis<br>- Quercus cerris<br>- Robinia pseudoacacia",
+          answer: "The system is trained to recognize 12 wood species, including:<br>- Ailanthus altissima<br>- Alnus glutinosa<br>- Castanea sativa<br>- Cupressus sempervirens<br>- Fagus sylvatica<br>- Fraxinus ornus<br>- Juglans regia<br>- Picea abies<br>- Pinus sylvestris<br>- Platanus orientalis<br>- Quercus cerris<br>- Robinia pseudoacacia",
         },
         {
           question: "What image formats are supported?",
-          answer: "The system supports *JPEG, PNG, and BMP* image formats. Ensure the image is *clear and well-lit* for better accuracy.",
+          answer: "The system supports JPEG, PNG, and BMP image formats. Ensure the image is clear and well-lit for better accuracy.",
         },
         {
           question: "How accurate is the prediction?",
-          answer: "The system provides a *confidence score (%)* along with the prediction. Higher scores indicate higher confidence in the result. If the confidence is low, try uploading a *clearer image* or using a different angle.",
+          answer: "The system provides a confidence score (%) along with the prediction. Higher scores indicate higher confidence in the result. If the confidence is low, try uploading a clearer image or using a different angle.",
         },
         {
           question: "Can I use this system on my phone?",
-          answer: "Yes! The system is *mobile-friendly* and works on both *desktop and mobile devices*.",
+          answer: "Yes! The system is mobile-friendly and works on both desktop and mobile devices.",
         },
         {
           question: "What should I do if the prediction is incorrect?",
-          answer: "- Ensure the *image is clear and well-focused*.<br>- Try taking the photo *in good lighting*.<br>- Use an image that shows the *wood grain clearly*.<br>- If the issue persists, the model might need *more training data* for certain species.",
+          answer: "- Ensure the image is clear and well-focused.<br>- Try taking the photo in good lighting.<br>- Use an image that shows the wood grain clearly.<br>- If the issue persists, the model might need more training data for certain species.",
         },
         {
           question: "Is my data stored after I upload an image?",
-          answer: "No, the system *does not store any images*. Uploaded files are only used for prediction and are deleted immediately after processing.",
+          answer: "No, the system does not store any images. Uploaded files are only used for prediction and are deleted immediately after processing.",
         },
         {
           question: "Can I contribute more wood species to the model?",
@@ -150,7 +150,8 @@ const LandingPage = () => {
           {faq.question}
           <span className="text-green-600">{openFAQ === index ? "−" : "+"}</span>
         </button>
-        {openFAQ === index && <p className="mt-3 text-gray-700">{faq.answer}</p>}
+        {openFAQ === index && (
+  <p className="mt-3 text-gray-700" dangerouslySetInnerHTML={{ __html: faq.answer }} />)}
       </div>
     ))}
   </div>
