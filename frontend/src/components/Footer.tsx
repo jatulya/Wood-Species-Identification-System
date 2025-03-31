@@ -1,28 +1,50 @@
 const Footer = () => {
     return (
-      <footer className="bg-gray-900 text-gray-400 py-8 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          
-          {/* Left Section */}
-          <div className="text-center md:text-left">
-            <h2 className="text-white text-lg font-semibold">WOOD SPECIES.</h2>
-            <p className="mt-1 text-sm">The Wood Species Recognition System is an AI-powered tool that identifies wood types based on images of<br/> anatomical features. Using Convolutional Neural Networks (CNNs) and image processing techniques,<br/> it automates species classification, reducing manual inspection efforts in the wood industry.</p>
-          </div>
+      <footer className="bg-green-900 text-white py-12 px-6">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-20">
+    
+    {/* Company Info */}
+    <div className="md:col-span-1">
+      <h3 className="text-lg font-semibold mb-4">WoodID</h3>
+      <p className="text-sm text-white">
+        Your reliable partner for wood species identification and analysis.
+      </p>
+    </div>
+    
+    {/* Navigation */}
+    <div className="md:col-span-1">
+      <h3 className="text-lg font-semibold mb-4">Navigation</h3>
+      <ul className="text-sm text-gray-400">
+        <li className="mb-2"><a href="#" className="hover:text-white">Home</a></li>
+        <li className="mb-2"><a href="#" className="hover:text-white">About</a></li>
+        <li className="mb-2"><a href="#" className="hover:text-white">Upload</a></li>
+        <li><a href="#" className="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+    
+    {/* Contact Info */}
+    <div className="md:col-span-1">
+      <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+      <p className="text-sm text-gray-400">
+        123 Main Street, City, Country
+      </p>
+      <p className="text-sm text-gray-400 mt-2">
+        Email: <a href="mailto:info@example.com" className="hover:text-white">info@example.com</a>
+      </p>
+      <p className="text-sm text-gray-400 mt-2">
+        Phone: <a href="tel:+1234567890" className="hover:text-white">+1 234 567 890</a>
+      </p>
+    </div>
+  </div>
   
-          {/* Right Section - Links */}
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">Home</a>
-            <a href="#" className="hover:text-white">About</a>
-            <a href="#" className="hover:text-white">Services</a>
-            <a href="#" className="hover:text-white">Contacts</a>
-          </div>
-        </div>
+  {/* Divider */}
+  <hr className="border-white my-8" /> 
   
-        {/* Bottom Line */}
-        <div className="border-t border-gray-700 mt-6 pt-4 text-center text-sm">
-          © 2025 Wood Species. All rights reserved.
-        </div>
-      </footer>
+  {/* Copyright */}
+  <div className="text-center text-sm text-white">
+    &copy; {new Date().getFullYear()} WoodID. All rights reserved.
+  </div>
+</footer>
     );
   };
   

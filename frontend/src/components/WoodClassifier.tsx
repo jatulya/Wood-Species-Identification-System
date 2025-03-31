@@ -4,6 +4,8 @@ import { FaQuestionCircle } from "react-icons/fa";
 import axios from "axios"; 
 import ResultCard from "./ResultCard";
 import { Result} from "../types/interfaces";
+
+
 const WoodClassifier = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [preview, setPreview] = useState<string>("");
@@ -73,9 +75,9 @@ const WoodClassifier = () => {
                 </h2>
 
                 {/* Drag & Drop Box */}
-                <label className="flex flex-col items-center justify-center border-2 border-dashed border-blue-200 dark:border-gray-600 rounded-lg p-8 cursor-pointer hover:border-blue-500 transition">
+                <label className="flex flex-col items-center justify-center border-2 border-dashed border-green-400 dark:border-gray-600 rounded-lg p-8 cursor-pointer hover:border-green-700 transition">
                     <input type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
-                    <UploadCloud className="w-20 h-20 text-blue-800 dark:text-gray-500 mb-2  hover:text-blue-600 transition" />
+                    <UploadCloud className="w-20 h-20 text-green-600 dark:text-gray-500 mb-2  hover:text-green-800 transition" />
                     <span className="text-gray-600 dark:text-gray-400 text-sm">
                         Drag & Drop image here or <span className="text-blue-500">Choose file</span>
                     </span>
@@ -103,7 +105,7 @@ const WoodClassifier = () => {
                     <div className="mt-4 w-full">
                         <div className="relative w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full">
                             <div
-                                className="absolute left-0 top-0 h-full bg-blue-500 rounded-full transition-all"
+                                className="absolute left-0 top-0 h-full bg-green-700 rounded-full transition-all"
                                 style={{ width: `${uploadProgress}%` }}
                             />
                         </div>
@@ -128,7 +130,7 @@ const WoodClassifier = () => {
                 <div className="mt-6 flex flex-col items-center">
                     {!selectedFile && (
                         <button
-                            className="px-6 py-2 bg-blue-800 text-white rounded-lg transition hover:bg-blue-900 disabled:opacity-50"
+                            className="px-6 py-2 bg-green-800 text-white rounded-lg transition hover:bg-green-800 disabled:opacity-50"
                             onClick={handleUpload}
                             disabled={!selectedFile || loading}
                         >
@@ -137,16 +139,16 @@ const WoodClassifier = () => {
                     )}
 
                     {selectedFile && (
-                        <div className="flex w-full justify-center mt-4 gap-4">
+                        <div className="flex w-full justify-center mt-4 gap-10">
                             <button
-                                className="px-4 py-2 bg-gray-500 text-white rounded-lg disabled:opacity-50 transition hover:bg-gray-600"
+                                className="px-20 py-2 bg-green-300 text-white rounded-[2rem] disabled:opacity-50 transition hover:bg-green-600"
                                 onClick={handleRemoveFile}
                                 disabled={!selectedFile || loading}
                             >
                                 Cancel
                             </button>
                             <button
-                                className="px-4 py-2 bg-blue-800 text-white rounded-lg disabled:opacity-50 transition hover:bg-blue-900"
+                                className="px-20 py-2 bg-green-700 text-white rounded-[2rem] disabled:opacity-50 transition hover:bg-green-900"
                                 onClick={handleUpload}
                                 disabled={!selectedFile || loading}
                             >
@@ -159,7 +161,7 @@ const WoodClassifier = () => {
                 {/* Help Icon */}
                 {selectedFile && (
                     <div className="w-full flex justify-end mt-4">
-                        <button className="p-2 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 transition">
+                        <button className="p-2 text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-400 transition">
                             <FaQuestionCircle size={24} />
                         </button>
                     </div>
